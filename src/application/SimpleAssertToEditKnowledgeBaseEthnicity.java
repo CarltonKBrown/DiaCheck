@@ -26,26 +26,24 @@ import javafx.stage.Stage;
 public class SimpleAssertToEditKnowledgeBaseEthnicity {
 
     // private attribute declarations... instantiation is done in the initializeComponents method
-    Stage stage;
-    Scene scene;
-    MenuBar menuBar;
-    Menu Dia_Check, support;
-    MenuItem signout, help;
-    Label instruction;
-    Button assertButton, cancel;
-    BorderPane root;
-    VBox vBox;
-    GridPane gp;
-    HBox hBox1, hBox2;
+    private Stage stage;
+    private MenuBar menuBar;
+    private Menu Dia_Check, support;
+    private MenuItem signout, help;
+    private Button assertButton, cancel;
+    private BorderPane root;
+    private VBox vBox;
+    private GridPane gp;
+    private HBox hBox1, hBox2;
 
-    CheckBox black, chinese, lebanese, syrian, white, indian;
-    String black_msg = "";
-    String chinese_msg = "";
-    String white_msg = "";
-    String lebanese_msg = "";
-    String indian_msg = "";
-    String syrian_msg = "";
-    String allrace_msg = "";
+    private CheckBox black, chinese, lebanese, syrian, white, indian;
+    private String black_msg = "";
+    private String chinese_msg = "";
+    private String white_msg = "";
+    private String lebanese_msg = "";
+    private String indian_msg = "";
+    private String syrian_msg = "";
+    private String allrace_msg = "";
 
     public SimpleAssertToEditKnowledgeBaseEthnicity(Stage stage){  // class primary constructor
         this.stage = stage;		//
@@ -54,7 +52,7 @@ public class SimpleAssertToEditKnowledgeBaseEthnicity {
         registerListeners();
     }
 
-    public void initializeComponents(){			// this method when called is where most of the attributes of the class are instantiated
+    private void initializeComponents(){			// this method when called is where most of the attributes of the class are instantiated
 
         assertButton = new Button("Assert");
         cancel = new Button("cancel");
@@ -74,13 +72,13 @@ public class SimpleAssertToEditKnowledgeBaseEthnicity {
         // menu
     }
 
-    public void addNodesToPanes(){		// method to outline how and where the nodes are to be render/ positioned on the GUI
+    private void addNodesToPanes(){		// method to outline how and where the nodes are to be render/ positioned on the GUI
 
         Dia_Check.getItems().add(signout);			// method that adds the close menu item to the menu
         support.getItems().add(help);
         menuBar.getMenus().addAll(Dia_Check, support);
 
-        instruction = new Label("Please check any ethnicity now at risk");
+        Label instruction = new Label("Please check any ethnicity now at risk");
         instruction.setStyle("-fx-font-size: 20");
 
         black = new CheckBox("Black Ethnicity");
@@ -130,7 +128,7 @@ public class SimpleAssertToEditKnowledgeBaseEthnicity {
         stage.show();
     }
 
-    public void registerListeners(){  // all action events method
+    private void registerListeners(){  // all action events method
 
         assertButton.setOnAction(new EventHandler<ActionEvent>() {
 

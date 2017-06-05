@@ -23,17 +23,17 @@ import javafx.stage.Stage;
 public class MainMenu{
 
     // private attribute declarations... instantiation is done in the initializeComponents method
-    Label title, poweredByJavaFx;
-    Button editKnowledgeBaseButton, surveyButton,  exitButton;
-    BorderPane root;
-    VBox vBox;
-    GridPane gp;
-    MenuBar menuBar;
-    Menu Dia_Check, support;
-    MenuItem exit, help;
+    private Label title, poweredByJavaFx;
+    private Button editKnowledgeBaseButton, surveyButton,  exitButton;
+    private BorderPane root;
+    private VBox vBox;
+    private GridPane gp;
+    private MenuBar menuBar;
+    private Menu Dia_Check, support;
+    private MenuItem exit, help;
 
-    Stage primaryStage;
-    Scene scene;
+    private Stage primaryStage;
+    private Scene scene;
 
     public MainMenu(Stage primaryStage){		// class primary constructor
         this.primaryStage = primaryStage;	//
@@ -42,7 +42,7 @@ public class MainMenu{
         registerListeners();
     }
 
-    public void initializeComponents(){			// this method when called is where most of the attributes of the class are instantiated
+    private void initializeComponents(){			// this method when called is where most of the attributes of the class are instantiated
         title = new Label("Dia-Check");
         title.setId("titleofApplication");
         poweredByJavaFx = new Label("Powered by JavaFx");
@@ -65,7 +65,7 @@ public class MainMenu{
         // menu
     }
 
-    public void addNodesToPanes(){		// method to outline how and where the nodes are to be render/ positioned on the GUI
+    private void addNodesToPanes(){		// method to outline how and where the nodes are to be render/ positioned on the GUI
 
         Dia_Check.getItems().add(exit); 	// method that adds the close menu item to the menu
         support.getItems().add(help);
@@ -116,7 +116,7 @@ public class MainMenu{
         primaryStage.show();
     }
 
-    public void registerListeners(){  	// all action events method
+    private void registerListeners(){  	// all action events method
         editKnowledgeBaseButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override

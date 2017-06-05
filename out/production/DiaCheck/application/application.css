@@ -1,0 +1,48 @@
+
+.root{
+	-fx-background-color: rgb(235, 240, 72);
+}
+
+/*#MainVBox{
+	-fx-background-color: rgb(235, 240, 72);
+}*/
+
+.label{
+	-fx-font-family: "Forte";
+	-fx-text-fill: grey;
+	-fx-font-size: 12pt;
+}
+
+.button{
+	-fx-font-family: "Forte";
+	-fx-text-fill: grey;
+	-fx-background-radius: 13;
+	-fx-focus-color: grey;
+}
+
+.button:hover{
+	-fx-background-color: rgb(235, 240, 72);
+}
+
+.menu-bar{
+	-fx-background-color: transparent;
+}
+
+#titleofApplication{
+	-fx-font-size: 40pt;
+	-fx-font-family: "Forte";
+	-fx-effect: dropshadow( one-pass-box , black , 3 , 0.0 , 2 , 0 );
+}
+
+#lbl{
+	-fx-font-family: "Forte";
+	-fx-padding: 10 0 30 10;  /*top right lower-end left*/
+	-fx-text-fill: grey;
+	-fx-font-size: 15pt;
+}
+
+#poweredByJavaFx{
+	-fx-font-family: "Nexa Rust";
+	-fx-padding: 0 20 10 0;  /*top right lower-end left*/
+	-fx-effect: dropshadow( one-pass-box , black , 3 , 0.0 , 2 , 0 );
+}

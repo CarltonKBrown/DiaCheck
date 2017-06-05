@@ -3,6 +3,7 @@ package application;
 import org.jpl7.*;
 
 import javax.swing.JOptionPane;
+
 /**
  * Created by Carlton on 5/6/2017.
  */
@@ -13,10 +14,9 @@ public class ProJava {
         consultProlog();	// call consultProlog method
     }
 
-    public  void consultProlog() { // method used to consult prolog knowledge base file
+    private void consultProlog() { // method used to consult prolog knowledge base file
 
         String file = (System.getProperty("user.dir").toString() + "\\Diacheck.pl");
-       //System.out.println(  System.getProperty("user.dir").toString());
         Query q1 = new Query("consult", new Term[] {new Atom(file)});
         String mess = "Consult" + (q1.hasSolution() ? " Successful" : " Failed");
         JOptionPane.showMessageDialog(null, mess);
@@ -41,7 +41,7 @@ public class ProJava {
     }
 
     // method used to strip results from prolog of unwanted characters
-    public static String cleanData(String data)
+    private static String cleanData(String data)
     {
         data = data.replace("X", "");
         data = data.replace("Y=", "");
@@ -217,7 +217,10 @@ public class ProJava {
         while(q_risk.hasMoreElements()){
             rate_obj = q_risk.nextElement();
         }
-        String test= rate_obj.toString();
+        String test= null;
+        if (rate_obj != null) {
+            test = rate_obj.toString();
+        }
         test = cleanData(test);
         test=test.replace("rate", "");
         test = test.replace(" ", "");

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    public static ProJava projava = new ProJava();
+    public static ProJava proJava = new ProJava();
 
     @Override
     public void start(Stage primaryStage) throws Exception {

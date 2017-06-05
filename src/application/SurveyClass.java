@@ -40,37 +40,37 @@ import javafx.stage.Stage;
 public class SurveyClass {
 
     // private attribute declarations... instantiation is done in the initializeComponents method
-    Label label, ageGroupQuestion, genderQuestion, ethnicityQuestion, heightQuestion1, heightQuestion2, weightQuestion, prediabetesQuestion, inActivityQuestion, GestationalQuestion, Polycystic_Overian_Syndrome_Question;
-    RadioButton agegroup1, agegroup2, agegroup3, agegroup4, malegroup, femalegroup, blackEthnicity, chineseEthnicity, lebaneseEthnicity, syrianEthnicity, whiteEthnicity, indianEthnicity, yesAnswer1, noAnswer1, yesAnswer2, noAnswer2, yesAnswer3, noAnswer3, yesAnswer4, noAnswer4;
-    ToggleGroup group1, group2, group3, group4, group5, group6, group7, group8;
-    Button submit, back;
+    private Label label, ageGroupQuestion, genderQuestion, ethnicityQuestion, heightQuestion1, heightQuestion2, weightQuestion, prediabetesQuestion, inActivityQuestion, GestationalQuestion, Polycystic_Overian_Syndrome_Question;
+    private RadioButton agegroup1, agegroup2, agegroup3, agegroup4, malegroup, femalegroup, blackEthnicity, chineseEthnicity, lebaneseEthnicity, syrianEthnicity, whiteEthnicity, indianEthnicity, yesAnswer1, noAnswer1, yesAnswer2, noAnswer2, yesAnswer3, noAnswer3, yesAnswer4, noAnswer4;
+    private ToggleGroup group1, group2, group3, group4, group5, group6, group7, group8;
+    private Button submit, back;
 
-    BorderPane bPane;
-    VBox mainVBox, subVbox1, subVbox2;
-    FlowPane flowPane, flowPane2, flowPane3, flowPane4, flowPane5, flowPane6, flowPane7, flowPane8;
-    ScrollPane scrollPane;
-    Scene scene;
-    Stage primaryStage;
+    private BorderPane bPane;
+    private VBox mainVBox, subVbox1, subVbox2;
+    private FlowPane flowPane, flowPane2, flowPane3, flowPane4, flowPane5, flowPane6, flowPane7, flowPane8;
+    private ScrollPane scrollPane;
+    private Scene scene;
+    private Stage primaryStage;
 
-    MenuBar menuBar;
-    Menu Dia_Check, support;
-    MenuItem close, help;
+    private MenuBar menuBar;
+    private Menu Dia_Check, support;
+    private MenuItem close, help;
 
-    TextField heightTextField1;
-    TextField heightTextField2;
-    TextField weightTextField;
-    BufferedImage bufferedImage;
-    Image backicon;
-    ImageView imageView;
+    private TextField heightTextField1;
+    private  TextField heightTextField2;
+    private TextField weightTextField;
+    private BufferedImage bufferedImage;
+    private Image backicon;
+    private ImageView imageView;
 
-    String res1 = "";
-    String res2 = "";
-    String res3 = "";
-    String res4 = "";
-    String ethnic = "";
-    String age = "";
-    String gender = "";
-    String messgae ="";
+    private String res1 = "";
+    private String res2 = "";
+    private String res3 = "";
+    private String res4 = "";
+    private String ethnic = "";
+    private String age = "";
+    private String gender = "";
+    private String messgae ="";
     // private attribute declarations... instantiation is done in the initializeComponents method
 
 
@@ -84,7 +84,7 @@ public class SurveyClass {
         setStageScene();
     }
 
-    public void initializeComponents() {			// this method when called is where most of the attributes of the class are instantiated
+    private void initializeComponents() {			// this method when called is where most of the attributes of the class are instantiated
 
         // JavaFX label
         label = new Label("Want to know if you are at risk of getting type 2 Diabetes.... Complete the survey below to find out...");
@@ -277,13 +277,13 @@ public class SurveyClass {
         // menu
     }
 
-    public void menus(){
+    private void menus(){
         Dia_Check.getItems().add(close);			// method that adds the close menu item to the menu
         support.getItems().add(help);
         menuBar.getMenus().addAll(Dia_Check, support);
     }
 
-    public void addNodesToPanes(){ 		// method to outline how and where the nodes are to be render/ positioned on the GUI
+    private void addNodesToPanes(){ 		// method to outline how and where the nodes are to be render/ positioned on the GUI
 
         bPane.setTop(menuBar);  // position the menubar object at the to of the scene
         bPane.setCenter(scrollPane); // scrollpane node of the scene graph placed at the center of the scene
@@ -327,18 +327,18 @@ public class SurveyClass {
         flowPane8.getChildren().addAll(back, submit);
     }
 
-    public void addRootPaneToScene(){
+    private void addRootPaneToScene(){
         scene = new Scene(bPane, 900, 950);  // borderpane is the root of the scene graph. The width of the scene is 900px and the heightbeing 950px
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
     }
 
-    public void setStageScene(){
+    private void setStageScene(){
         primaryStage.setScene(scene);		// set the scene of the stage
         primaryStage.centerOnScreen();		// set the stage to the center of the screen
         primaryStage.show();				// make the stage visible
     }
 
-    void addListeners(){   // Listeners for button events and text field events
+    private void addListeners(){   // Listeners for button events and text field events
         group2.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
             public void changed(ObservableValue<? extends Toggle> ov,
                                 Toggle old_toggle, Toggle new_toggle) {
@@ -383,8 +383,8 @@ public class SurveyClass {
             public void handle(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 if(group1.getSelectedToggle()==null || group2.getSelectedToggle()==null || group3.getSelectedToggle()==null ||
-                        group4.getSelectedToggle()==null || group5.getSelectedToggle()==null || ((yesAnswer3.isDisabled()==false && noAnswer3.isDisable()==false) && group6.getSelectedToggle()==null)
-                        || ((yesAnswer4.isDisabled()==false && noAnswer4.isDisable()==false) && group7.getSelectedToggle()==null) || heightQuestion1.getText().isEmpty() || heightQuestion2.getText().isEmpty() ||
+                        group4.getSelectedToggle()==null || group5.getSelectedToggle()==null || ((!yesAnswer3.isDisabled() && !noAnswer3.isDisable()) && group6.getSelectedToggle()==null)
+                        || ((!yesAnswer4.isDisabled() && !noAnswer4.isDisable()) && group7.getSelectedToggle()==null) || heightQuestion1.getText().isEmpty() || heightQuestion2.getText().isEmpty() ||
                         weightTextField.getText().isEmpty()){
                     String warn = "**** PLEASE COMPLETE SURVEY ****";
                     JOptionPane.showMessageDialog(null, warn, "MISSING SURVEY DATA", JOptionPane.INFORMATION_MESSAGE);
@@ -427,9 +427,9 @@ public class SurveyClass {
                         ethnic= "indian";
                     }
                     String fam_history= "1";
-                    String feet= heightTextField1.getText().toString();
-                    String inches= heightTextField2.getText().toString();
-                    String pounds = weightTextField.getText().toString();
+                    String feet= heightTextField1.getText();
+                    String inches= heightTextField2.getText();
+                    String pounds = weightTextField.getText();
 
                     if(yesAnswer1.isSelected()){
                         res1= "1";

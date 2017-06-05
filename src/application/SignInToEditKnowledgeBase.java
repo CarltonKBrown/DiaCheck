@@ -41,12 +41,12 @@ public class SignInToEditKnowledgeBase {
     private BorderPane bPane;
     private VBox vbox;
     private GridPane gridPane;
-    MenuBar menuBar;
-    Menu Dia_Check, support;
-    MenuItem close, help;
-    Separator separator;
-    Stage primaryStage;
-    Scene scene;
+    private MenuBar menuBar;
+    private Menu Dia_Check, support;
+    private MenuItem close, help;
+    private Separator separator;
+    private Stage primaryStage;
+    private Scene scene;
 
     public SignInToEditKnowledgeBase(Stage primaryStage) {		// class primary constructor
         // TODO Auto-generated constructor stub			//
@@ -58,7 +58,7 @@ public class SignInToEditKnowledgeBase {
         //setStageScene();
     }
 
-    public void initializeComponents(){			// this method when called is where most of the attributes of the class are instantiated
+    private void initializeComponents(){			// this method when called is where most of the attributes of the class are instantiated
         username = new TextField();
         username.setPromptText("Enter username");
         username.setPrefWidth(250);
@@ -92,13 +92,13 @@ public class SignInToEditKnowledgeBase {
         separator = new Separator();
     }
 
-    public void menus(){			// method that adds the close menu item to the menu
+    private void menus(){			// method that adds the close menu item to the menu
         Dia_Check.getItems().add(close);
         support.getItems().add(help);
         menuBar.getMenus().addAll(Dia_Check, support);
     }
 
-    public void addNodesToPanes(){			// method to outline how and where the nodes are to be render/ positioned on the GUI
+    private void addNodesToPanes(){			// method to outline how and where the nodes are to be render/ positioned on the GUI
         bPane.setTop(menuBar);
         bPane.setBottom(poweredByJavaFx);
         BorderPane.setAlignment(poweredByJavaFx, Pos.BOTTOM_RIGHT);
@@ -135,7 +135,7 @@ public class SignInToEditKnowledgeBase {
         primaryStage.show();			// make the stage visible
     }
 
-    public void setActionEvents(){				// all action events method
+    private void setActionEvents(){				// all action events method
 
         signIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -169,7 +169,7 @@ public class SignInToEditKnowledgeBase {
         });
     }
 
-    public void incorrectEntry(){		// method called when incorrect credentials were entered. It simply clears the textfield and password field. It also outlines them red
+    private void incorrectEntry(){		// method called when incorrect credentials were entered. It simply clears the textfield and password field. It also outlines them red
         username.setText("");
         password.setText("");
         username.setPromptText("Username maybe incorrect");
@@ -178,7 +178,7 @@ public class SignInToEditKnowledgeBase {
         password.setStyle("-fx-focus-color: red; -fx-faint-focus-color:red;");
     }
 
-    public boolean readFromFile() throws FileNotFoundException, IOException{		// read credentials from text file named Adminz
+    private boolean readFromFile() throws FileNotFoundException, IOException{		// read credentials from text file named Adminz
         File file = new File("../DiaCheck/src/Adminz.txt");
         FileInputStream fis = new FileInputStream(file);
 
